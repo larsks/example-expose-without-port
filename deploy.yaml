@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: docker.io/traefik/whoami:latest
+        name: whoami
+        env:
+          - name: WHOAMI_PORT_NUMBER
+            value: "8080"
